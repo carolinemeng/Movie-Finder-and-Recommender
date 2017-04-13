@@ -11,21 +11,25 @@ import {Request} from './Request';
 import {Gender}  from './Gender';
 import {Userprofile}  from './Userprofile';
 
+//get all game profile
 import {Destinyprofile} from './Destinyprofile';
 import {Wowprofile} from './Wowprofile';
 import {Leftprofile} from './Leftprofile';
 import {Diabloprofile} from './Diabloprofile';
 
+//all user inforomation
 import {Destinyuser} from './Destinyuser';
 import {Wowuser} from './Wowuser';
 import {Leftuser} from './Leftuser';
 import {Diablouser} from './Diablouser';
 
+//show all game platforms
 import {Destinyplatform} from './Destinyplatform';
 import {Wowplatform} from './Wowplatform';
 import {Leftplatform} from './Leftplatform';
 import {Diabloplatform} from './Diabloplatform';
 
+//show all game characters
 import {Destinycharacter} from './Destinycharacter';
 import {Wowcharacter} from './Wowcharacter';
 import {Leftcharacter} from './Leftcharacter';
@@ -33,6 +37,7 @@ import {Diablocharacter} from './Diablocharacter';
 
 @Injectable() 
 export class DatabaseService {
+//get all data from database
   gamenames        : FirebaseListObservable<Gamename[]>;
   platforms        : FirebaseListObservable<Platform[]>;
   types            : FirebaseListObservable<Type[]>;
@@ -67,7 +72,6 @@ export class DatabaseService {
 
 
 //get all data from database
-
   getGamename(){
         this.gamenames = this._af.database.list('/gamenames') as 
         FirebaseListObservable<Gamename[]>
@@ -103,6 +107,7 @@ export class DatabaseService {
        return this.genders;
   };
   
+//request info
   getUserprofile(name:string = null){
     if(name !=null) {
        this.userprofiles = this. _af.database.list('/userprofiles',{
@@ -305,7 +310,6 @@ export class DatabaseService {
   updateuserprofile(key, upduserprofile){
     return this.userprofiles.update(key, upduserprofile);
   };
-  
   
   postdestinyprofile(newprofile){
     return this.destinyprofiles.push(newprofile);
