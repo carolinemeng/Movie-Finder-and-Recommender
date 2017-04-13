@@ -82,6 +82,8 @@ export class GamesComponent implements OnInit {
     });
   }
 
+
+//change state show and hide diiferent contents
   changeState(state,key){
     console.log('change state to:'+state);
     if(key) {
@@ -91,6 +93,7 @@ export class GamesComponent implements OnInit {
     this.appState = state;
   };
 
+//add user game list if user already registered
     adddestinylist(name: string,
     ){
      var newprofile ={

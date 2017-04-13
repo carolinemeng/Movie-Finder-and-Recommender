@@ -1,5 +1,7 @@
 <form  (submit) = "postleftprofile(name.value,email.value,playerid.value,playstyle.value,platform.value,character.value)">
 <div>
+ 
+<!--name and email-->
  <label>Your desired name
  <select #name>
   <option value="{{profile.name}}">{{profile.name}}</option>
@@ -15,6 +17,7 @@
  </label>
  </div>
  
+<!--player id and player style-->
  <div>
   <label>Please enter your player id
   <input type="text" #playerid required>
@@ -29,7 +32,8 @@
    </select>
   </label> 
   </div>
-  
+
+<!--platform and characters-->
   <div>
   <label>Please selcet your platform
    <select #platform>
