@@ -7,6 +7,7 @@ export interface Request {
         type?        : string;
         mort?        : string;
         time?        : Date;
+        timezone?    : string;
         duration?    : string;
         description? : string;
 }

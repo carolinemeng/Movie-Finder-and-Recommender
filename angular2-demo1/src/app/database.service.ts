@@ -37,6 +37,8 @@ import {Diablocharacter} from './Diablocharacter';
 
 @Injectable() 
 export class DatabaseService {
+  date: Date;
+  
 //get all data from database
   gamenames        : FirebaseListObservable<Gamename[]>;
   platforms        : FirebaseListObservable<Platform[]>;
@@ -68,8 +70,10 @@ export class DatabaseService {
   leftcharacters    : FirebaseListObservable<Leftcharacter[]>;
   diablocharacters  : FirebaseListObservable<Diablocharacter[]>;
   
-  constructor(private _af: AngularFire) { };
-
+  constructor(private _af: AngularFire) {
+    this.date = new Date();
+    console.log("this date name:"+this.date);
+  };
 
 //get all data from database
   getGamename(){
@@ -126,8 +130,8 @@ export class DatabaseService {
     }
   };
   
-  getRequest(gamename:string = null,platform:string = null){
-    if(gamename != null && platform == null){
+  getRequest(gamename:string = null, platform:string = null, timezone:string = null){
+    if(gamename != null && platform == null  && timezone == null){
        this.requests = this. _af.database.list('/requests',{
          query: {
            orderByChild:'game',
@@ -136,11 +140,20 @@ export class DatabaseService {
        }) as
        FirebaseListObservable<Request[]>
        
-    } else if (gamename == null && platform !=null){
+    } else if (gamename == null && platform !=null && timezone == null){
       this.requests = this. _af.database.list('/requests',{
          query: {
            orderByChild:'platform',
            equalTo: platform,
+         }
+       }) as
+       FirebaseListObservable<Request[]>
+       
+    } else if (gamename == null && platform ==null && timezone != null){
+      this.requests = this. _af.database.list('/requests',{
+         query: {
+           orderByChild:'timezone',
+           equalTo: timezone,
          }
        }) as
        FirebaseListObservable<Request[]>

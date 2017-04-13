@@ -78,7 +78,7 @@ export class RequestComponent implements OnInit {
 
 //filter function
   filterPlatform(platform){
-     this.databaseService.getRequest(null,platform).subscribe(requests => {
+     this.databaseService.getRequest(null,platform,null).subscribe(requests => {
 
      this.requests = requests;
      console.log('platform:'+requests);
@@ -87,22 +87,30 @@ export class RequestComponent implements OnInit {
   
   filterGamename(gamename){
      this.databaseService.getRequest(gamename).subscribe(requests => {
-      console.log('change key = key:'+gamename);
      this.requests = requests;
-     console.log('change:'+requests);
     });
    };
+   
+  filterTime(time){
+    console.log("filter time:+++:"+time);
+     this.databaseService.getRequest(null,null,time).subscribe(requests => {
+     this.requests = requests;
+    });
+  };
+  
+
 
 //post requests
    postrequest(name:string,
-        email:string,
-        game: string,
-        platform:string,
-        type: string,
-        mort: string,
-        time: Date,
-        duration: string,
-        description: string){
+        email       : string,
+        game        : string,
+        platform    : string,
+        type        : string,
+        mort        : string,
+        time        : Date,
+        timezone    : string,
+        duration    : string,
+        description : string){
             
       var newpost ={
         name:name,
@@ -112,6 +120,7 @@ export class RequestComponent implements OnInit {
         type: type,
         mort: mort,
         time: time,
+        timezone:timezone,
         duration: duration,
         description: description
       };

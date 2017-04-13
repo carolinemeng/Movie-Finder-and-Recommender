@@ -54,7 +54,7 @@
         </label>
         
         <label *ngIf="auth.authenticated()"> 
-            <select  #filteredtime>
+            <select (change)="filterTime(filteredtime.value)" #filteredtime>
                 <option value="0">Filter by Preferenced time</option>
                 <option *ngFor="let timezone of timezones" value="{{timezone.name}}">{{timezone.name}}</option>
             </select>
@@ -65,7 +65,7 @@
     <br>
     <div *ngIf="appState == 'add'">
       <h3>Post request</h3>
-      <form (submit) ="postrequest(name.value, email.value, game.value,platform.value,type.value,mort.value,time.value,duration.value,description.value)">
+      <form (submit) ="postrequest(name.value, email.value, game.value,platform.value,type.value,mort.value,time.value,timezone.value,duration.value,description.value)">
        <div class="box">
             <input class="hide" value="{{profile.nickname}}" #name>
             <input class="hide" value="{{profile.email}}" #email>
@@ -94,6 +94,8 @@
            <label>Start time
            <input type="datetime-local" #time>
            </label>
+           
+           <input type="text" class="hide" value="PDT" #timezone>
            
            <label>Duration
            <input type="text" placeholder="Enter how long" #duration>
@@ -163,6 +165,7 @@
             <th>Type of team</th>
             <th>Match/Event</th>
             <th>Start time</th>
+            <th>Timezone</th>
             <th>Duration</th>
             <th>Short description</th>
           </tr>  
@@ -174,7 +177,8 @@
             <td>{{request.platform}}</td>
             <td>{{request.type}}</td>  
             <td>{{request.mort}}</td>
-            <td>{{request.time | date:"yy/MM/dd HH:mm Z"}}</td>  
+            <td>{{request.time | date:"yy/MM/dd HH:mm"}}</td>
+            <td>{{request.timezone}}</td>
             <td>{{request.duration}}</td>  
             <td>{{request.description}}</td>  
             <td>
