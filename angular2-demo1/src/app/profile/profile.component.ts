@@ -74,7 +74,7 @@ export class ProfileComponent implements OnInit {
         this.file = [];
          
         this.form = fb.group({
-        age: new FormControl('', CustomValidators.range([0, 110])),
+        age: new FormControl('', CustomValidators.range([1, 110])),
         })
        
   };

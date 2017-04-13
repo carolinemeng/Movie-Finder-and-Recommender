@@ -15,10 +15,7 @@ export class AppComponent {
 
   constructor(private auth: AuthService) {
      this.profile = JSON.parse(localStorage.getItem('profile'));
-
-     console.log("profile:"+ this.profile.email_verified);
      this.file = [];
-     console.log("test:"+this.isVerified());
   };
   
   isVerified(){

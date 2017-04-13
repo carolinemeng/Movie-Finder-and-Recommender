@@ -21,11 +21,9 @@
  </label>
  </div>
   
- 
-  
  <div>
- <label [formGroup]="form">Please enter your age
- <input type="number" formControlName="age" class="age" value="0" #age>
+ <label>Please enter your age
+ <input type="number" class="age" value="0" min="0" max="110" #age>
  </label>
  </div>
 
