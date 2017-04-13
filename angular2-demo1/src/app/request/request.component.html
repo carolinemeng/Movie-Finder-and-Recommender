@@ -1,7 +1,9 @@
    <button (click)="changeState('pastrequest')" *ngIf="auth.authenticated()">Show my past request</button>
    <button (click)="changeState('normal')" *ngIf="auth.authenticated() && appState == 'pastrequest' " >Hide my past request</button>
-    <div *ngIf="appState == 'pastrequest'">
    
+<!--this part shows user's own request-->
+
+    <div *ngIf="appState == 'pastrequest'">
     <table class="table table-striped">
         <thead>
           <tr>
@@ -14,8 +16,6 @@
             <th>Short description</th>
           </tr>  
         </thead>
-        
-        
         
         <tbody>
           <tr *ngFor="let myrequest of myrequests">

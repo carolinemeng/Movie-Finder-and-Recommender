@@ -6,8 +6,8 @@ declare var Auth0Lock: any;
 
 @Injectable()
 export class AuthService {
+ 
   //设置auth0
-  
   lock = new Auth0Lock('0BfF3mmgfJFpxab3sUYbh5rpP2e5nCcC','ece9065.auth0.com', {
         theme: {
             logo: "http://i67.tinypic.com/23shx0y.jpg",

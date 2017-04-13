@@ -8,7 +8,7 @@ import { GamesComponent } from './games/games.component';
 import { RequestComponent } from './request/request.component';
 import { AuthGuard } from './auth.guard';
 
-//export const routing = RouterModule.forRoot([         ])
+//this part is for routes
 const appRoutes: Routes = [
    { path: '', component: FrontPageComponent},
    { path: 'login', component: LoginComponent},
