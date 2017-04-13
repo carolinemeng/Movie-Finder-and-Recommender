@@ -1,11 +1,24 @@
 import { Component } from '@angular/core';
-import {CoursesComponent} from './courses/courses.component';
+import { AuthService } from './auth.service';
+
 
 @Component({
+
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+
 })
 export class AppComponent {
-  title = 'Wecome to lab four!';
+  profile:any;
+  file: Array<Object>;
+  activetest:boolean;
+  test:boolean;
+  
+  constructor(private auth: AuthService) {
+     this.profile = JSON.parse(localStorage.getItem('profile'));
+     console.log(this.activetest);
+     this.file = [];
+  };
+  
 }
