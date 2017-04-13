@@ -12,13 +12,21 @@ import { AuthService } from './auth.service';
 export class AppComponent {
   profile:any;
   file: Array<Object>;
-  activetest:boolean;
-  test:boolean;
-  
+
   constructor(private auth: AuthService) {
      this.profile = JSON.parse(localStorage.getItem('profile'));
-     console.log(this.activetest);
+
+     console.log("profile:"+ this.profile.email_verified);
      this.file = [];
+     console.log("test:"+this.isVerified());
+  };
+  
+  isVerified(){
+    if (this.profile.email_verified == true){
+      return true;
+    } else {
+      return false;
+    }
   };
   
 }

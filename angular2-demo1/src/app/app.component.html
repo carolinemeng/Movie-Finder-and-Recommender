@@ -5,10 +5,7 @@
 <a routerLink="" >home</a>
 <a routerLink="login">login</a>
 <a routerLink="games">games</a>
-<a routerLink="profile" *ngIf="auth.authenticated()">profile</a>
+<a routerLink="profile" *ngIf="auth.authenticated()&&isVerified()">profile</a>
 </nav>
 
 <router-outlet></router-outlet>
-
-
-
