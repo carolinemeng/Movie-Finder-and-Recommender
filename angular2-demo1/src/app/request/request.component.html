@@ -26,7 +26,7 @@
             <td>{{myrequest.time | date:"yy/MM/dd HH:mm Z"}}</td>
             <td>{{myrequest.duration}}</td>  
             <td>{{myrequest.description}}</td>  
-            <td><button class="btn btn-success"(click)="changeState('edit')">Edit</button>
+            <td><button class="btn btn-success"(click)="changeState('edit', myrequest.$key)">Edit</button>
                 <button class="btn btn-danger" (click)="deleterequest(request.$key)" >Delete</button></td>  
           </tr>  
         </tbody>
