@@ -46,7 +46,6 @@ export class LeftComponent implements OnInit {
   };
 
 //get post infomation
-
 postleftprofile(name: string,
         email:string,
         playerid:string,

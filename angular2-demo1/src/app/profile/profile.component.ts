@@ -151,7 +151,8 @@ export class ProfileComponent implements OnInit {
     console.log(event.file);
     this.file.push(event.file);
   };
-  
+ 
+//show and hide different contents 
    changeState(state,key){
     console.log('change state to:'+state);
     if(key) {
@@ -160,7 +161,8 @@ export class ProfileComponent implements OnInit {
     }
     this.appState = state;
   };
-
+  
+//post all user infomation
    postuserprofile(name: string,
         email      :string,
         image      :string,
@@ -187,7 +189,8 @@ export class ProfileComponent implements OnInit {
       this.databaseService.postuserprofile(newpost);
       this.changeState('default');
    };
-   
+
+//display all user profile 
     showuserprofile(userprofile){
     this.changeState('update');
     this.activename       = userprofile.name;
@@ -220,7 +223,8 @@ export class ProfileComponent implements OnInit {
    this.databaseService.updateuserprofile(this.activekey, editeduserprofile);
    this.changeState('default');
    }
-   
+
+//post user's densitny profile   
    postdestinyprofile(name: string,
         email:string,
         playerid:string,
@@ -242,6 +246,7 @@ export class ProfileComponent implements OnInit {
       this.changeState('gameinfo');
    }
 
+//post user's wow profile  
    postwowprofile(name: string,
         email:string,
         playerid:string,
@@ -265,6 +270,7 @@ export class ProfileComponent implements OnInit {
       this.changeState('gameinfo');
    }
 
+//post user's diablo profile  
   postdiabloprofile(name: string,
         email:string,
         playerid:string,
