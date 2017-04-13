@@ -22,6 +22,8 @@ export class RequestComponent implements OnInit {
   platforms     : Platform[];
   timezones     : Timezone[];
   types         : Type[];
+  
+//get update data  
   appState      : string;
   activekey     : string;
   activegame    : string;
@@ -57,12 +59,14 @@ export class RequestComponent implements OnInit {
     this.databaseService.getType().subscribe(types => {
      this.types= types;
     });
-    
+
+//get my request
     this.databaseService.getMyrequest(this.profile.nickname).subscribe(myrequests => {
      this.myrequests = myrequests;
     });
   }
   
+//function hide and show some infomation
   changeState(state,key){
     console.log('change state to:'+state);
     if(key) {
@@ -72,13 +76,14 @@ export class RequestComponent implements OnInit {
     this.appState = state;
   };
 
+//filter function
   filterPlatform(platform){
      this.databaseService.getRequest(null,platform).subscribe(requests => {
 
      this.requests = requests;
      console.log('platform:'+requests);
     });
-  }
+  };
   
   filterGamename(gamename){
      this.databaseService.getRequest(gamename).subscribe(requests => {
@@ -86,8 +91,9 @@ export class RequestComponent implements OnInit {
      this.requests = requests;
      console.log('change:'+requests);
     });
-   }
-   
+   };
+
+//post requests
    postrequest(name:string,
         email:string,
         game: string,
@@ -113,7 +119,9 @@ export class RequestComponent implements OnInit {
       this.databaseService.postrequest(newpost);
       this.changeState('default');
    };
-   
+
+
+//display infomation   
   showrequest(request){
     this.changeState('edit', request.$key);
     this.activegame        = request.game;
@@ -124,7 +132,8 @@ export class RequestComponent implements OnInit {
     this.activeduration    = request.duration;
     this.activedescription = request.description;
    };
-   
+
+//update    
   updaterequest(){
     var editedrequest ={
       game        : this.activegame,  

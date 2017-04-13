@@ -62,7 +62,7 @@
  </div>
 </div>
 
-
+<!--display all game infomation-->
 <div id="game_content">
   <div *ngFor="let game of games | async">
    <button class="game_box" (click)="changeState(game.name)">  <img src="{{game.image}}" alt="{{game.name}} image" >  
