@@ -98,6 +98,9 @@ export class RequestComponent implements OnInit {
     });
   };
   
+  combinefilter(platform,gamename,time){
+    
+  };
 
 
 //post requests

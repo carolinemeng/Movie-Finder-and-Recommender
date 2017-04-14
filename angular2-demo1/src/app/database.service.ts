@@ -158,10 +158,18 @@ export class DatabaseService {
        }) as
        FirebaseListObservable<Request[]>
        
+    } else if (gamename != null && platform !=null && timezone == null){
+      this.requests = this. _af.database.list('/requests',{
+         query: {
+           orderByChild:'platform',
+           equalTo: platform,
+         }
+       }) as
+       FirebaseListObservable<Request[]>
     } else {
       this.requests = this. _af.database.list('/requests',{
         query: {
-          orderByChild:'time',
+          orderByChild: 'time',
         }
       }) as
       FirebaseListObservable<Request[]>
