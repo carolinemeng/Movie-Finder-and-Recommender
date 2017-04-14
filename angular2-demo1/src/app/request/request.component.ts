@@ -99,6 +99,13 @@ export class RequestComponent implements OnInit {
   };
   
   combinefilter(platform,gamename,time){
+    if (platform != null) {
+      
+    } else if (gamename != null) {
+      
+    } else if (time != null) {
+      
+    };
     
   };
 
