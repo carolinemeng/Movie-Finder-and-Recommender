@@ -37,7 +37,8 @@ import {Diablocharacter} from './Diablocharacter';
 
 @Injectable() 
 export class DatabaseService {
-  date: Date;
+  date: number = Date.now();
+  today:string;
   
 //get all data from database
   gamenames        : FirebaseListObservable<Gamename[]>;
@@ -71,7 +72,7 @@ export class DatabaseService {
   diablocharacters  : FirebaseListObservable<Diablocharacter[]>;
   
   constructor(private _af: AngularFire) {
-    this.date = new Date();
+    
     console.log("this date name:"+this.date);
   };
 
@@ -170,6 +171,7 @@ export class DatabaseService {
       this.requests = this. _af.database.list('/requests',{
         query: {
           orderByChild: 'time',
+          startAt: this.date,
         }
       }) as
       FirebaseListObservable<Request[]>
