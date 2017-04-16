@@ -167,7 +167,7 @@
  </label>
  </div>
  
- <button type="submit" class="btn btn-success btn-lg" value="Edit">Save my profile</button>
+ <button type="submit" class="btn btn-success btn-lg" (click)="" value="Edit">Save my profile</button>
  </form>  
  <br>
  <button class="btn btn-lg" (click)="changeState('normal')">I want go back</button>
@@ -275,6 +275,35 @@
  <br>
  <button class="btn btn-lg" (click)="changeState('gameinfo')">go back</button>
 </div>
+
+<!--normal-->
+<div *ngIf="appState == 'norma1'">
+<h2>Welcome, {{profile.nickname}}</h2>
+<img class="img-circle" src="{{image}}" >
+<h2>Please select your status</h2>
+<button class="btn btn-danger btn-lg" (click)="changeState('new')">I am a new user !</button>
+<button class="btn btn-lg exp" (click)="changeState('default')">Shut up, I am a experienced user!</button>
+</div>
+
+<div *ngIf="appState == 'default'">
+<h3>Account name:{{profile.nickname}}</h3>
+<img class="img-circle" src="{{profile.picture}}" >
+<br>
+<div *ngFor="let userprofile of userprofiles">
+<h4>Age:{{userprofile.age}}</h4>
+<h4>Gender:{{userprofile.gender}}</h4>
+<h4>My timezone:{{userprofile.timezone}}</h4>
+<h4>Microphone:{{userprofile.microphone}}</h4>
+<h4>{{userprofile.$key}}</h4>
+</div>
+
+<div *ngFor="let destinyprofile of destinyprofiles">
+<h4>My density playstyle:{{destinyprofile.playstyle}}</h4>
+<h4>My density platform:{{destinyprofile.platform}}</h4>
+<h4>My density playerid:{{destinyprofile.playerid}}</h4>
+<h4>My density best character:{{destinyprofile.character}}</h4>
+</div>
+
 
 <!--game wow-->
 <div *ngIf="appState == 'World of Warcraft'">
