@@ -57,7 +57,7 @@
  <div>
  <label>Your regular play times on weekdays
    <select #weekday>
-     <option>Moring</option>
+     <option>Morning</option>
      <option>Afternoon</option>
       <option>Eveing</option>
    </select>
@@ -67,7 +67,7 @@
   <div>
  <label>Your regular play times on weekends
    <select #weekend>
-     <option>Moring</option>
+     <option>Morning</option>
      <option>Afternoon</option>
       <option>Eveing</option>
    </select>
@@ -150,7 +150,7 @@
  <div>
  <label>Your regular play times on weekdays
    <select [(ngModel)]="activeweekday" name="activeweekday" #weekday>
-     <option>Moring</option>
+     <option>Morning</option>
      <option>Afternoon</option>
       <option>Eveing</option>
    </select>
@@ -160,7 +160,7 @@
  <div>
  <label>Your regular play times on weekends
    <select [(ngModel)]="activeweekend" name="activeweekend" #weekend>
-     <option>Moring</option>
+     <option>Morning</option>
      <option>Afternoon</option>
       <option>Eveing</option>
    </select>
@@ -191,7 +191,8 @@
 <h4>Gender:{{userprofile.gender}}</h4>
 <h4>My timezone:{{userprofile.timezone}}</h4>
 <h4>Microphone:{{userprofile.microphone}}</h4>
-<h4>{{userprofile.$key}}</h4>
+<h4>My regular playtime(weekdays):{{userprofile.weekday}}</h4>
+<h4>My regular playtime(weekdends):{{userprofile.weekend}}</h4>
 </div>
 
 <div *ngFor="let destinyprofile of destinyprofiles">
@@ -246,15 +247,6 @@
   </label>
   </div>
   
- <div>
- <label>Please selcet your playstyle
-   <select #playstyle>
-     <option value="0">Select</option>
-     <option *ngFor="let playstyle of playstyles" value="{{playstyle.name}}">{{playstyle.name}}</option>
-   </select>
-  </label> 
-  </div>
-  
   <div>
   <label>Please selcet your platform
    <select #platform>
@@ -289,13 +281,15 @@
 
 <div *ngIf="appState == 'defau1t'">
 <h3>Account name:{{profile.nickname}}</h3>
-<img class="img-circle" src="{{profile.picture}}" >
+<img class="img-circle" src="{{image}}" >
 <br>
 <div *ngFor="let userprofile of userprofiles">
 <h4>Age:{{userprofile.age}}</h4>
 <h4>Gender:{{userprofile.gender}}</h4>
 <h4>My timezone:{{userprofile.timezone}}</h4>
 <h4>Microphone:{{userprofile.microphone}}</h4>
+<h4>My regular playtime(weekdays):{{userprofile.weekday}}</h4>
+<h4>My regular playtime(weekdends):{{userprofile.weekend}}</h4>
 <h4>{{userprofile.$key}}</h4>
 </div>
 
