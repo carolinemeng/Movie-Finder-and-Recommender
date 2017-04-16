@@ -195,7 +195,6 @@ export class ProfileComponent implements OnInit {
     this.changeState('update');
     this.activename       = userprofile.name;
     this.activeemail      = userprofile.email;
-    this.activeimage      = userprofile.image;
     this.activeage        = userprofile.age;
     this.activegender     = userprofile.gender;
     this.activetimezone   = userprofile.timezone;
@@ -209,7 +208,6 @@ export class ProfileComponent implements OnInit {
     var editeduserprofile ={
       name      :this.activename,
       email     :this.activeemail,
-      image     :this.activeimage,
       age       :this.activeage,
       gender    :this.activegender,
       timezone  :this.activetimezone,
@@ -221,7 +219,7 @@ export class ProfileComponent implements OnInit {
 
    
    this.databaseService.updateuserprofile(this.activekey, editeduserprofile);
-   this.changeState('default');
+   this.changeState('defau1t');
    }
 
 //post user's densitny profile   
