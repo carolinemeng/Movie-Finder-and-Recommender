@@ -151,6 +151,7 @@ export class ProfileComponent implements OnInit {
     console.log(event.file);
     this.file.push(event.file);
   };
+ image="/assets/img/reset/usedrnam.jpg";
  
 //show and hide different contents 
    changeState(state,key){
@@ -192,7 +193,6 @@ export class ProfileComponent implements OnInit {
 
 //display all user profile 
     showuserprofile(userprofile){
-    this.changeState('update');
     this.activename       = userprofile.name;
     this.activeemail      = userprofile.email;
     this.activeage        = userprofile.age;
@@ -203,6 +203,8 @@ export class ProfileComponent implements OnInit {
     this.activeweekday    = userprofile.weekday;
     this.activeweekend    = userprofile.weekend;
    };
+   
+   
    
   updateuserprofile(){
     var editeduserprofile ={
@@ -219,7 +221,7 @@ export class ProfileComponent implements OnInit {
 
    
    this.databaseService.updateuserprofile(this.activekey, editeduserprofile);
-   this.changeState('defau1t');
+   this.changeState('norma1');
    }
 
 //post user's densitny profile   

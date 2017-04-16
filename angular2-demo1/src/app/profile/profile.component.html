@@ -167,7 +167,7 @@
  </label>
  </div>
  
- <button type="submit" class="btn btn-success btn-lg" (click)="updateuserprofile()" value="Edit">Save my profile</button>
+ <button type="submit" class="btn btn-success btn-lg" value="Edit">Save my profile</button>
  </form>  
  <br>
  <button class="btn btn-lg" (click)="changeState('normal')">I want go back</button>
@@ -201,9 +201,11 @@
 <h4>My density best character:{{destinyprofile.character}}</h4>
 </div>
 
-
-<button class="btn btn-info btn-lg" (click)="showuserprofile(userprofile)">Update my profile</button>
+<div *ngFor="let userprofile of userprofiles">
+<button class="btn btn-info btn-lg" (click)="changeState('update', userprofile.$key)">Update my profile</button>
 <br>
+</div>
+
 <a routerLink="../games" ><button class="btn btn-danger btn-lg">Go to game settings</button></a>
 </div>
 
@@ -274,6 +276,15 @@
  </form>
  <br>
  <button class="btn btn-lg" (click)="changeState('gameinfo')">go back</button>
+</div>
+
+<!--normal-->
+<div *ngIf="appState == 'norma1'">
+<h2>Welcome, {{profile.nickname}}</h2>
+<img class="img-circle" src="{{image}}" >
+<h2>Please select your status</h2>
+<button class="btn btn-danger btn-lg" (click)="changeState('new')">I am a new user !</button>
+<button class="btn btn-lg exp" (click)="changeState('default')">Shut up, I am a experienced user!</button>
 </div>
 
 <div *ngIf="appState == 'defau1t'">
