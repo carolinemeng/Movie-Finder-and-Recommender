@@ -194,7 +194,7 @@ image="./assets/img/e.jpg";
 
 //display all user profile 
     showuserprofile(userprofile){
-    this.changeState('edit', request.$key);
+    this.changeState('edit', userprofile.$key);
     this.activename       = userprofile.name;
     this.activeemail      = userprofile.email;
     this.activeage        = userprofile.age;

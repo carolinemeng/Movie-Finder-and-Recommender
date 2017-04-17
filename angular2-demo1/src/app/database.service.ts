@@ -72,7 +72,7 @@ export class DatabaseService {
   diablocharacters  : FirebaseListObservable<Diablocharacter[]>;
   
   constructor(private _af: AngularFire) {
-    
+  
     console.log("this date name:"+this.date);
   };
 
@@ -170,8 +170,8 @@ export class DatabaseService {
     } else {
       this.requests = this. _af.database.list('/requests',{
         query: {
-          orderByChild: 'time',
-          startAt: this.date,
+          orderByChild: 'time2',
+          startAt: '2017-04-18',
         }
       }) as
       FirebaseListObservable<Request[]>
