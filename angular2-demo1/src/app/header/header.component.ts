@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  title = 'TEAMMATE';
-  subtitle = 'Build your dream team';
+  title = ' YOUR MOVIE FINDER';
+  subtitle = 'Find your favourite movies in theater';
   constructor() { }
 
   ngOnInit() {

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthService } from './auth.service';
 
 
 @Component({
@@ -10,20 +9,11 @@ import { AuthService } from './auth.service';
 
 })
 export class AppComponent {
-  profile:any;
-  file: Array<Object>;
-
-  constructor(private auth: AuthService) {
-     this.profile = JSON.parse(localStorage.getItem('profile'));
-     this.file = [];
+  lat: number = 43.0077586;
+  lng: number = -81.2771694;
+  constructor() {
   };
   
-  isVerified(){
-    if (this.profile.email_verified == true){
-      return true;
-    } else {
-      return false;
-    }
-  };
+
   
 }

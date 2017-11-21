@@ -1,20 +1,15 @@
-import { RouterModule, Router,Routes } from '@angular/router';
+import { Router,Routes,RouterModule } from '@angular/router';
 import { ModuleWithProviders }  from '@angular/core';
-import { LoginComponent } from './login/login.component';
 import { FrontPageComponent } from './front-page/front-page.component';
-import { ProfileComponent } from './profile/profile.component';
 import { NotfoundComponent } from './notfound/notfound.component';
-import { GamesComponent } from './games/games.component';
-import { RequestComponent } from './request/request.component';
-import { AuthGuard } from './auth.guard';
+import { MoviesComponent} from './movies/movies.component';
+import { MovieComponent} from './movie/movie.component';
 
 //this part is for routes
 const appRoutes: Routes = [
    { path: '', component: FrontPageComponent},
-   { path: 'login', component: LoginComponent},
-   { path: 'games', component: GamesComponent},
-   { path: 'request', component: RequestComponent},
-   { path: 'profile', component:ProfileComponent, canActivate:[AuthGuard] },
+   { path: 'map', component: MoviesComponent},
+   { path:'movie/:id', component: MovieComponent},
    { path: '**', component:NotfoundComponent}
 ];
 
